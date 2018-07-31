@@ -2,6 +2,7 @@
 # Ubuntu Car Hacking Workstation Setup
 # TODO:
 # Fix Python-Obd Install
+# Fix OBD-Monitor Install
 
 set -e
 
