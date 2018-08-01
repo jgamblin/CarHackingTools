@@ -42,7 +42,7 @@ gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 
 #Running The Tool Install script
-sh ./toolinstall.sh
+./toolinstall.sh
 
 # Make Desktop Icons
 
