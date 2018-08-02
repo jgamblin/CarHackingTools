@@ -1,10 +1,12 @@
 #!/bin/bash
 # Ubuntu Car Hacking Workstation Setup
 # TODO:
-# Fix Python-Obd Install
-# Fix OBD-Monitor Install
+# Fix PyOBD
 
 set -e
+
+# Set Install Dir Beacon
+installdir=$(pwd)
 
 # Setup Tools Directory
 sudo mkdir -p /tools
@@ -12,7 +14,7 @@ sudo chmod -R 0777 /tools
 cd /tools || exit
 
 
-# Add user to dialout
+# Add user to dialout so USB-to-Serial Works-ish.
 sudo usermod -a -G dialout $USER
 
 #setup scipt
@@ -136,7 +138,7 @@ sudo rm cantact-v0.3.0-alpha.zip
 cd .. || exit
 
 # Caringcaribou
-# Read The Docs Here: https://github.com/digitalbond/canbus-utils
+# Read The Docs Here: https://github.com/CaringCaribou/caringcaribou
 pip install --user python-can
 git clone https://github.com/CaringCaribou/caringcaribou
 
@@ -184,7 +186,11 @@ sudo python setup.py install
 cd .. || exit
 
 # PyOBD:
-git clone https://github.com/Pbartek/pyobd-pi.git
+# Fix This!
+# Backup: git clone https://github.com/Pbartek/pyobd-pi.git
+wget http://www.obdtester.com/download/pyobd_0.9.3.tar.gz
+sudo tar -xzvf pyobd_0.9.3.tar.gz
+sudo rm -rf pyobd_0.9.3.tar.gz
 
 # SavvyCAN
 # Read The Docs Here: https://github.com/collin80/SavvyCAN
@@ -289,10 +295,108 @@ make
 sudo make install
 cd .. || exit
 
-# Udsim
+# UDSim
 # Read The Docs Here: https://github.com/zombieCraig/UDSim
 git clone https://github.com/zombieCraig/UDSim
 cd UDSim/src || exit
 make
 cd .. || exit
+cd .. || exit
+
+# Make Desktop Icons
+
+printf "Configuring Desktop Icons"
+printf "\n"
+
+mkdir -p -p icons
+cd icons || exit
+
+cat << EOF > BlueLog.desktop
+[Desktop Entry]
+Name=BlueLog
+Type=Application
+Path=/tools/Bluelog
+Exec=/tools/Bluelog/bluelog
+Icon=/tools/Bluelog/www/images/bluelog_logo.png
+Terminal=true
+Categories=Utility
+StartupNotify=false
+EOF
+
+wget https://carhacking.tools/install/images/cantact.png -O cantact.png
+
+cat << EOF > Cantact.desktop
+[Desktop Entry]
+Name=Cantact
+Type=Application
+Path=/tools/cantact-app/cantact/bin
+Exec=sudo -H /tools/cantact-app/cantact/bin/cantact
+Icon=/tools/icons/cantact.png
+Terminal=true
+Categories=Utility
+StartupNotify=false
+EOF
+
+wget https://carhacking.tools/install/images/icsim.png -O icsim.png
+
+cat << EOF > ICSim.desktop
+[Desktop Entry]
+Name=ICSim
+Type=Application
+Path=/tools/ICSim/
+Exec=/tools/ICSim/icsim vcan0
+Icon=/tools/icons/icsim.png
+Terminal=true
+Categories=Utility
+StartupNotify=false
+EOF
+
+cat << EOF > ICSimControls.desktop
+[Desktop Entry]
+Name=ICSim Controls
+Type=Application
+Path=/tools/ICSim/
+Exec=/tools/ICSim/controls vcan0
+Icon=/tools/icons/icsim.png
+Terminal=true
+Categories=Utility
+StartupNotify=false
+EOF
+
+wget https://carhacking.tools/install/images/kayak.png -O kayak.png
+
+cat << EOF > KayakInstall.desktop
+[Desktop Entry]
+Name=Kayak Install
+Type=Application
+Path=/tools/kayak
+Exec=/tools/kayak/Kayak-1.0-SNAPSHOT-linux.sh
+Icon=/tools/icons/kayak.png
+Terminal=true
+Categories=Utility
+StartupNotify=false
+EOF
+
+wget https://carhacking.tools/install/images/KatyOBD.png -O KatyOBD.png
+
+cat << EOF > KatyOBD.desktop
+[Desktop Entry]
+Name=KatyOBD
+Type=Application
+Path=/tools/KatyOBD
+Exec=sudo -H python KatyOBD.py
+Icon=/tools/icons/KatyOBD.png
+Terminal=true
+Categories=Utility
+StartupNotify=false
+EOF
+
+sudo rm ~/Desktop/SavvyCAN.desktop
+sleep 15
+chmod 755 *.desktop
+cp *.desktop ~/.local/share/applications
+cd .. || exit
+
+cd ~/.local/share/applications || exit
+chmod 755 *.desktop
 cd .. || exit

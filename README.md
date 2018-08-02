@@ -29,7 +29,8 @@ The following tools are installed and configured automatically:
 | Scantool |  https://www.scantool.net/ | |
 | Socketcand |  https://github.com/dschanoeh/socketcand | |
 | UDSim |  https://github.com/zombieCraig/UDSim | |
-| Wireshark |  https://www.wireshark.org/ | |
+| Wireshark |  https://www.wireshark.org/ | | 
+
 
 # Install
 
@@ -43,7 +44,7 @@ An OVA is avalibile on [CarHacking.Tools](CarHacking.Tools) to download.
 
 To Install The Full Desktop:
 ```
-Git Clone
+Git clone https://github.com/jgamblin/carhackingtools
 cd CarHackingTools
 sudo chmod +x *.sh
 ./workstationinstall.sh
@@ -53,7 +54,7 @@ sudo chmod +x *.sh
 
 To Install Only The Tools:
 ```
-Git Clone
+Git clone https://github.com/jgamblin/carhackingtools
 cd CarHackingTools
 sudo chmod +x *.sh
 ./toolinstall.sh
