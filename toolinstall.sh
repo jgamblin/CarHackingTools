@@ -11,6 +11,10 @@ sudo mkdir -p /tools
 sudo chmod -R 0777 /tools
 cd /tools || exit
 
+
+# Add user to dialout
+sudo usermod -a -G dialout $USER
+
 #setup scipt
 clear
 printf "Running Tool Install."
@@ -163,6 +167,11 @@ cd .. || exit
 
 # OBD-Monitor
 git clone https://github.com/dchad/OBD-Monitor
+cd OBD-Monitor || exit
+make stests
+make server
+make ftests
+cd .. || exit
 
 # Python-ODB
 # Read The Docs Here: https://python-obd.readthedocs.io/en/latest/
