@@ -27,7 +27,7 @@ The following tools are installed and configured automatically:
 | PyOBD |  http://www.obdtester.com/pyobd | Need To Fix Install. |
 | SavvyCAN |  http://www.savvycan.com/ | |
 | Scantool |  https://www.scantool.net/ | |
-| Socketcand   https://github.com/dschanoeh/socketcand | |
+| Socketcand |  https://github.com/dschanoeh/socketcand | |
 | UDSim |  https://github.com/zombieCraig/UDSim | |
 | Wireshark |  https://www.wireshark.org/ | |
 
