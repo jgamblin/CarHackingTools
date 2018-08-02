@@ -59,6 +59,7 @@ libavformat-dev \
 libbluetooth-dev \
 libconfig-dev \
 libgps-dev \
+libgtk-3-dev \
 libportmidi-dev \
 libsdl2-dev \
 libsdl2-image-dev \
