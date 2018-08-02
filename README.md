@@ -12,39 +12,24 @@
 
 The following tools are installed and configured automatically:
 
-* Can-Utils
-  * Website: https://github.com/linux-can/can-utils
-* Canbus-Utils
-  * Website: https://github.com/digitalbond/canbus-utils
-* Cantact-App
-  * Website: https://github.com/linklayer/cantact-app/
-* Caringcaribou
-  * Website: https://github.com/CaringCaribou/caringcaribou
-* GNUradio
-  * Website: https://www.gnuradio.org/
-* c0f
-  * Website: https://github.com/zombieCraig/c0f
-* ICSim
-  * Website: https://github.com/zombieCraig/ICSim
-* KatyOBD
-  * Website: https://github.com/YangChuan80/KatyOBD
-* Kayak
-  * Website: http://kayak.2codeornot2code.org/
-* OBD-Monitor
-  * Website: https://github.com/dchad/OBD-Monitor
-* PyOBD
-  * Website: http://www.obdtester.com/pyobd
-  * Note: Need To Fix Install.
-* SavvyCAN
-  * Website: http://www.savvycan.com/
-* Scantool
-  * Website: https://www.scantool.net/
-* Socketcand
-  * Website: https://github.com/dschanoeh/socketcand
-* UDSim
-  * Website: https://github.com/zombieCraig/UDSim
-* Wireshark
-  * Website: https://www.wireshark.org/
+|Tool Name     |Link         | Notes |
+| ------------- |-------------| -----
+| Can-Utils | https://github.com/linux-can/can-utils | |
+| Canbus-Utils |  https://github.com/digitalbond/canbus-utils | |
+| Cantact-App |  https://github.com/linklayer/cantact-app/ | |
+| Caringcaribou |  https://github.com/CaringCaribou/caringcaribou | |
+| GNUradio |  https://www.gnuradio.org/ | |
+| c0f |  https://github.com/zombieCraig/c0f | |
+| ICSim |  https://github.com/zombieCraig/ICSim | |
+| KatyOBD |  https://github.com/YangChuan80/KatyOBD | |
+| Kayak |  http://kayak.2codeornot2code.org/ | |
+| OBD-Monitor |  https://github.com/dchad/OBD-Monitor | |
+| PyOBD |  http://www.obdtester.com/pyobd | Need To Fix Install. |
+| SavvyCAN |  http://www.savvycan.com/ | |
+| Scantool |  https://www.scantool.net/ | |
+| Socketcand   https://github.com/dschanoeh/socketcand | |
+| UDSim |  https://github.com/zombieCraig/UDSim | |
+| Wireshark |  https://www.wireshark.org/ | |
 
 # Install
 
