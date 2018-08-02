@@ -6,6 +6,9 @@
 
 set -e
 
+# Set Install Dir Beacon
+installdir=$(pwd)
+
 # Setup Tools Directory
 sudo mkdir -p /tools
 sudo chmod -R 0777 /tools
@@ -42,6 +45,7 @@ gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 
 #Running The Tool Install script
+cd $installdir
 ./toolinstall.sh
 
 # Make Desktop Icons
