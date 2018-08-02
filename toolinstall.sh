@@ -1,35 +1,25 @@
 #!/bin/bash
 # Ubuntu Car Hacking Workstation Setup
-# TODO:
-# Fix PyOBD
+# TODO: General CLean Up. 
 
 set -e
-
-# Set Install Dir Beacon
-installdir=$(pwd)
 
 # Setup Tools Directory
 sudo mkdir -p /tools
 sudo chmod -R 0777 /tools
 cd /tools || exit
 
-
 # Add user to dialout so USB-to-Serial Works-ish.
 sudo usermod -a -G dialout $USER
 
-#setup scipt
-clear
-printf "Running Tool Install."
-printf "\n"
-
 # Update System
-sudo DEBIAN_FRONTEND=noninteractive apt-get update -y -qq < /dev/null > /dev/null
-sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -qq < /dev/null > /dev/null
+sudo DEBIAN_FRONTEND=noninteractive apt-get update -y -qq
+sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -qq
 
 #  Java Fixes
 echo oracle-java10-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
-sudo DEBIAN_FRONTEND=noninteractive add-apt-repository -y ppa:webupd8team/java < /dev/null > /dev/null
-sudo DEBIAN_FRONTEND=noninteractive apt-get update -y -qq < /dev/null > /dev/null
+sudo DEBIAN_FRONTEND=noninteractive add-apt-repository -y ppa:webupd8team/java
+sudo DEBIAN_FRONTEND=noninteractive apt-get update -y -qq
 
 #Base Package Install (Packages Listed Invidually For Easy Customazation/Trobule Shooting.)
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq  \
@@ -95,9 +85,7 @@ unrar \
 unzip \
 wget \
 wireshark \
-zlib1g-dev \
-< /dev/null > /dev/null
-
+zlib1g-dev
 
 #Python Pip
 python -m pip uninstall pip  # this might need sudo
@@ -118,7 +106,7 @@ cd .. || exit
 # Can-Utils:
 # Read The Docs: https://github.com/linux-can/can-utils
 # More Reading: # More Reading: https://discuss.cantact.io/t/using-can-utils/24
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq can-utils < /dev/null > /dev/null
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq can-utils
 
 # Canbus-utils
 # Read The Docs Here: https://github.com/digitalbond/canbus-utils
@@ -171,10 +159,13 @@ cd .. || exit
 # OBD-Monitor
 git clone https://github.com/dchad/OBD-Monitor
 cd OBD-Monitor || exit
+cd src|| exit
 make stests
 make server
 make ftests
 cd .. || exit
+cd .. || exit
+
 
 # Python-ODB
 # Read The Docs Here: https://python-obd.readthedocs.io/en/latest/
@@ -282,7 +273,7 @@ cd .. || exit
 
 # Scantool
 # Read The Docs Here: https://samhobbs.co.uk/2015/04/scantool-obdii-car-diagnostic-software-linux
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq scantool < /dev/null > /dev/null
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq scantool
 
 # Socketcand
 # Read The Docs Here: https://github.com/dschanoeh/socketcand
@@ -393,7 +384,7 @@ EOF
 
 sudo rm ~/Desktop/SavvyCAN.desktop
 sleep 15
-chmod 755 *.desktop
+sudo chmod 755 *.desktop
 cp *.desktop ~/.local/share/applications
 cd .. || exit
 

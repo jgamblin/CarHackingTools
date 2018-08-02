@@ -13,7 +13,7 @@
 The following tools are installed and configured automatically:
 
 |Tool Name     |Link         | Notes |
-| ------------- |-------------| -----
+|-------------|-------------|-----|
 | Can-Utils | https://github.com/linux-can/can-utils | |
 | Canbus-Utils |  https://github.com/digitalbond/canbus-utils | |
 | Cantact-App |  https://github.com/linklayer/cantact-app/ | |
@@ -24,19 +24,19 @@ The following tools are installed and configured automatically:
 | KatyOBD |  https://github.com/YangChuan80/KatyOBD | |
 | Kayak |  http://kayak.2codeornot2code.org/ | |
 | OBD-Monitor |  https://github.com/dchad/OBD-Monitor | |
-| PyOBD |  http://www.obdtester.com/pyobd | Need To Fix Install. |
+| PyOBD |  http://www.obdtester.com/pyobd ||
 | SavvyCAN |  http://www.savvycan.com/ | |
 | Scantool |  https://www.scantool.net/ | |
 | Socketcand |  https://github.com/dschanoeh/socketcand | |
 | UDSim |  https://github.com/zombieCraig/UDSim | |
-| Wireshark |  https://www.wireshark.org/ | | 
+| Wireshark |  https://www.wireshark.org/ | . |  
 
 
 # Install
 
 ## Virtual Machine
 
-An OVA is avalibile on [CarHacking.Tools](CarHacking.Tools) to download.
+An OVA is available on [CarHacking.Tools](CarHacking.Tools) to download.
 
 [Alpha OVA](https://carhacking.tools/install/alpha/alpha180718/CarHackingDesktopAlpha.ova)
 

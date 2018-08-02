@@ -1,9 +1,8 @@
 #!/bin/bash
 # Ubuntu Car Hacking Workstation Setup
 # TODO:
-# Fix Python-Obd Install
-# Fix OBD-Monitor Install
-
+# Make Sure Icons Work.
+# General Clean Up.
 set -e
 
 # Set Install Dir Beacon
@@ -33,7 +32,7 @@ gsettings set org.gnome.desktop.screensaver secondary-color '#000000'
 gsettings set org.gnome.desktop.screensaver ubuntu-lock-on-suspend false
 gsettings set org.gnome.login-screen disable-user-list true
 gsettings set org.gnome.nautilus.desktop trash-icon-visible false
-gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Terminal.desktop', 'Cantact.desktop', 'ICSim.desktop', 'ICSimControls.desktop', 'SavvyCAN.desktop', 'KayakInstall.desktop']"
+gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Terminal.desktop', 'Cantact.desktop', 'ICSim.desktop', 'ICSimControls.desktop', 'SavvyCAN.desktop', 'wireshark.desktop', 'moserial.desktop']":
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
 gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
