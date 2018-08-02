@@ -53,6 +53,7 @@ cd $installdir
 printf "Configuring Desktop"
 printf "\n"
 
+cd /tools || exit
 
 mkdir -p -p icons
 cd icons || exit
