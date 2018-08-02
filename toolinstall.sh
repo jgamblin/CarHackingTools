@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ubuntu Car Hacking Workstation Setup
-# TODO: General CLean Up. 
+# TODO: General CLean Up.
 
 set -e
 
@@ -389,5 +389,5 @@ cp *.desktop ~/.local/share/applications
 cd .. || exit
 
 cd ~/.local/share/applications || exit
-chmod 755 *.desktop
+sudo chmod 755 *.desktop
 cd .. || exit
