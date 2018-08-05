@@ -32,7 +32,7 @@ gsettings set org.gnome.desktop.screensaver secondary-color '#000000'
 gsettings set org.gnome.desktop.screensaver ubuntu-lock-on-suspend false
 gsettings set org.gnome.login-screen disable-user-list true
 gsettings set org.gnome.nautilus.desktop trash-icon-visible false
-gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Terminal.desktop', 'Cantact.desktop', 'ICSim.desktop', 'ICSimControls.desktop', 'SavvyCAN.desktop', 'wireshark.desktop', 'moserial.desktop']"
+gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Terminal.desktop', 'Cantact.desktop', 'ICSim.desktop', 'ICSimControls.desktop', 'SavvyCAN.desktop', 'wireshark.desktop', 'arduino.desktop', 'moserial.desktop']"
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
 gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
@@ -44,5 +44,5 @@ gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 
 #Running The Tool Install script
-cd $installdir
+cd "$installdir"
 ./toolinstall.sh

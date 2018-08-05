@@ -10,7 +10,7 @@ sudo chmod -R 0777 /tools
 cd /tools || exit
 
 # Add user to dialout so USB-to-Serial Works-ish.
-sudo usermod -a -G dialout $USER
+sudo usermod -a -G dialout "$USER"
 
 # Update System
 sudo DEBIAN_FRONTEND=noninteractive apt-get update -y -qq
@@ -25,6 +25,8 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get update -y -qq
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq  \
 aircrack-ng \
 ant \
+arduino \
+arduino-core \
 autoconf \
 automake \
 bison \
@@ -94,7 +96,7 @@ sudo apt install --reinstall python-pip
 # Starting Car Hacking Tool Installation
 
 printf "Instaling Tools"
-printf "\n"
+printf "\\n"
 
 # Bluelog
 # Read The Docs: https://github.com/MS3FGX/Bluelog
@@ -175,6 +177,7 @@ git clone https://github.com/brendan-w/python-OBD
 cd python-OBD || exit
 sudo python setup.py install
 cd .. || exit
+
 
 # PyOBD:
 # Fix This!
@@ -297,7 +300,7 @@ cd .. || exit
 # Make Desktop Icons
 
 printf "Configuring Desktop Icons"
-printf "\n"
+printf "\\n"
 
 mkdir -p -p icons
 cd icons || exit
@@ -384,10 +387,10 @@ EOF
 
 sudo rm ~/Desktop/SavvyCAN.desktop
 sleep 15
-sudo chmod 755 *.desktop
-cp *.desktop ~/.local/share/applications
+sudo chmod 755 ./*.desktop
+cp ./*.desktop ~/.local/share/applications
 cd .. || exit
 
 cd ~/.local/share/applications || exit
-sudo chmod 755 *.desktop
+sudo chmod 755 ./*.desktop
 cd .. || exit
