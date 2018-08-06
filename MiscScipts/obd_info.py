@@ -1,6 +1,7 @@
+#!/usr/bin/env python
 # Usage: obd_test.py DEVICE
 # Example: obd_test.py /dev/ttyUSB0
-# Prints supported OBD commands to the console, along with their current values.
+# Prints supported OBD commands to the console, along values.
 
 import sys
 import obd
@@ -15,9 +16,8 @@ print("------------------")
 
 command_names = []
 for command in connection.supported_commands:
-	try:
-		print("{}: {}".format(command.name, connection.query(command)))
-		command_names.append(command.name)
-	except NameError:
-    		pass	
-
+    try:
+        print("{}: {}".format(command.name, connection.query(command)))
+        command_names.append(command.name)
+    except NameError:
+        pass
