@@ -1,7 +1,7 @@
 
 # WARNING!  THIS IS STILL IN TESTING!  PLEASE DONT USE!
 
-`I am still testing and writing this code.  It likely doesn't work fully and isn't fully documented.`
+`*_I am still testing and writing this code.  It likely doesn't work fully and isn't fully documented._*`
 
 # CarHacking.Tools
 [CarHacking.Tools](CarHacking.Tools) is a scripts collection of scripts to help jump start car research (and hacking?). All the scripts are designed to run on [Ubuntu 18.04](ubuntu.com).
@@ -68,7 +68,7 @@ The following tools are installed and configured automatically:
 | ICSim |  <https://github.com/zombieCraig/ICSim> | Basic simulator for testing without a car.  |
 | KatyOBD |  <https://github.com/YangChuan80/KatyOBD> | A really neat project that provides a GUI. I want to fork this and make it better. |
 | Kayak |  <http://kayak.2codeornot2code.org/> | |
-| OBD-Monitor |  <https://github.com/dchad/OBD-Monitor> | A rally neat project that provides a GUI. Needs some documentation work and I had to edit the source code to get it to work correctly. |
+| OBD-Monitor |  <https://github.com/dchad/OBD-Monitor> | A rally neat project that provides a GUI. Needs some documentation work. |
 | PyOBD |  <http://www.obdtester.com/pyobd> | Super old tool, still works, kinda. |
 | Python-OBD |  <https://github.com/brendan-w/python-OBD> | Use over PIP install. |
 | SavvyCAN |  <http://www.savvycan.com/> | Basic CAN tool. |
@@ -89,5 +89,4 @@ The following sites have been useful to me:
 
 
 ## Warning
-
-`Please understand that these tools could damage your car! Take extreme care and use an OBDII simulator when at all possible.`
+I likely don't know what I am doing and this could be done faster, better and simpler some other way. These scripts could also break your car (seriously) and make you cry.
