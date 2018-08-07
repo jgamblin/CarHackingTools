@@ -13,16 +13,16 @@ cd /tools || exit
 sudo usermod -a -G dialout "$USER"
 
 # Update System
-sudo DEBIAN_FRONTEND=noninteractive apt-get update -y -qq
-sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -qq
+sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
+sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
 #  Java Fixes
 echo oracle-java10-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
 sudo DEBIAN_FRONTEND=noninteractive add-apt-repository -y ppa:webupd8team/java
-sudo DEBIAN_FRONTEND=noninteractive apt-get update -y -qq
+sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
 
 #Base Package Install (Packages Listed Invidually For Easy Customazation/Trobule Shooting.)
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq  \
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y  \
 aircrack-ng \
 ant \
 arduino \
@@ -108,7 +108,7 @@ cd .. || exit
 # Can-Utils:
 # Read The Docs: https://github.com/linux-can/can-utils
 # More Reading: # More Reading: https://discuss.cantact.io/t/using-can-utils/24
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq can-utils
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y  can-utils
 
 # Canbus-utils
 # Read The Docs Here: https://github.com/digitalbond/canbus-utils
@@ -276,7 +276,7 @@ cd .. || exit
 
 # Scantool
 # Read The Docs Here: https://samhobbs.co.uk/2015/04/scantool-obdii-car-diagnostic-software-linux
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq scantool
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y  scantool
 
 # Socketcand
 # Read The Docs Here: https://github.com/dschanoeh/socketcand
