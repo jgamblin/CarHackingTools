@@ -12,7 +12,7 @@
 
 An OVA is available on [CarHacking.Tools](CarHacking.Tools) to download.
 
-Download [BETA OVA](https://carhacking.tools/install/beta/CarHackingToolsBeta.ova) Here.
+Download [CHV BETA OVA](https://carhacking.tools/install/beta/CarHackingToolsCHVBeta.ova) Here.
 
 ```
 Notes:  
