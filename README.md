@@ -1,8 +1,3 @@
-
-# WARNING!  THIS IS STILL IN TESTING!  PLEASE DONT USE!
-
-`*_I am still testing and writing this code.  It likely doesn't work fully and isn't fully documented._*`
-
 # CarHacking.Tools
 [CarHacking.Tools](CarHacking.Tools) is a scripts collection of scripts to help jump start car research (and hacking?). All the scripts are designed to run on [Ubuntu 18.04](ubuntu.com).
 
