@@ -1,25 +1,14 @@
 # CarHacking.Tools
-[CarHacking.Tools](CarHacking.Tools) is a scripts collection of scripts to help jump start car research (and hacking?). All the scripts are designed to run on [Ubuntu 18.04](ubuntu.com).
 
-# How To Install
+CarHacking.Tools is a scripts collection of scripts to help jump start car research (and hacking?). All the scripts are designed to run on [Ubuntu 20.04](ubuntu.com).
 
-### Install Virtual Machine
-
-An OVA is available on [CarHacking.Tools](CarHacking.Tools) to download.
-
-Download [CHV BETA OVA](https://carhacking.tools/install/beta/CarHackingToolsCHVBeta.ova) Here.
-
-```
-Notes:  
-VMWare Fusion Works Better Than Virtual Box
-Stand Alone Hardware Is Best.
-```
+## How To Install
 
 ### Install Full Desktop
 
 To Install The Full Desktop:
 
-```
+```bash
 Git clone https://github.com/jgamblin/carhackingtools
 cd CarHackingTools
 sudo chmod +x *.sh
@@ -29,15 +18,16 @@ sudo chmod +x *.sh
 ### Install Tools Only
 
 To Install Only The Tools:
-```
+
+```bash
 Git clone https://github.com/jgamblin/carhackingtools
 cd CarHackingTools
 sudo chmod +x *.sh
 ./toolinstall.sh
 ```
 
+## OBDII Adapters
 
-# OBDII Adapters
 You will need an OBDII adapter to get started.  
 
 Here are three of my favorites that I own and test with:
@@ -49,7 +39,8 @@ Here are three of my favorites that I own and test with:
 | Cantact | <https://hackerwarehouse.com/product/cantact-bundle/> | An amazing open-source project for advanced users. |
 | $10 Veepeak Bluetooth | <http://a.co/ajFbcZ4> |  Great for getting started has some limitations. |
 
-# Included Tools
+## Included Tools
+
 The following tools are installed and configured automatically:
 
 | Tool Name | Link | Notes |
@@ -72,7 +63,7 @@ The following tools are installed and configured automatically:
 | UDSim |  <https://github.com/zombieCraig/UDSim> | Basic simulator for testing without a car. |
 | Wireshark |  <https://www.wireshark.org/> | Great for capturing OBDII data just like you would ethernet data. |  
 
-# Stuff To Read
+## Stuff To Read
 
 The following sites have been useful to me:
 
@@ -82,6 +73,6 @@ The following sites have been useful to me:
 | <http://opengarages.org/> | Open Garages |
 | <https://wiki.linklayer.com/index.php/SocketCAN> | I user this when I forget how to enable can0 |
 
-
 ## Warning
+
 I likely don't know what I am doing and this could be done faster, better and simpler some other way. These scripts could also break your car (seriously) and make you cry.
