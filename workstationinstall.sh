@@ -16,7 +16,7 @@ cd /tools || exit
 # Set Background Images
 mkdir -p images
 cd images || exit
-wget https://i.redd.it/ngu5ofssout01.png-O background.gif
+wget https://i.redd.it/ngu5ofssout01.png -O background.gif
 gsettings set org.gnome.desktop.background picture-uri "/tools/images/background.gif"
 cd .. || exit
 
