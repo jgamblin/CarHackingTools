@@ -20,8 +20,8 @@ sudo chmod +x *.sh
 To Install Only The Tools:
 
 ```bash
-Git clone https://github.com/jgamblin/carhackingtools
-cd CarHackingTools
+git clone https://github.com/jgamblin/carhackingtools
+cd carhackingtools
 sudo chmod +x *.sh
 ./toolinstall.sh
 ```

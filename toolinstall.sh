@@ -17,8 +17,8 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
 sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
 #  Java Fixes
-echo oracle-java10-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
-sudo DEBIAN_FRONTEND=noninteractive add-apt-repository -y ppa:webupd8team/java
+echo oracle-java15-installer shared/accepted-oracle-license-v1-2 select true | sudo /usr/bin/debconf-set-selections
+sudo DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:linuxuprising/java
 sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
 
 #Base Package Install (Packages Listed Invidually For Easy Customazation/Trobule Shooting.)
@@ -67,8 +67,8 @@ moserial \
 net-tools \
 netbeans \
 npm \
-oracle-java8-installer \
-oracle-java8-set-default \
+oracle-java15-installer \
+oracle-java15-set-default \
 python \
 python-dev \
 python-dev \
@@ -255,13 +255,13 @@ Controller.prototype.FinishedPageCallback = function() {
 }
 EOF
 
-wget https://s3.amazonaws.com/rstudio-buildtools/qt-unified-linux-x64-3.0.5-online.run
-chmod +x qt-unified-linux-x64-3.0.5-online.run
+wget http://qt.mirrors.tds.net/qt/archive/online_installers/4.0/qt-unified-linux-x64-4.0.0-online.run
+chmod +x qt-unified-linux-x64-4.0.0-online.run
 
 echo "Installing Qt, this will take a while."
 echo " - Ignore warnings about QtAccount credentials and/or XDG_RUNTIME_DIR."
 echo " - Do not click on any Qt setup dialogs, it is controlled by a script."
-sudo ./qt-unified-linux-x64-3.0.5-online.run --script  qt-noninteractive-install-linux.qs
+sudo ./qt-unified-linux-x64-4.0.0-online.run --script  qt-noninteractive-install-linux.qs
 cd .. || exit
 
 # SavvyCan Install
@@ -317,7 +317,7 @@ Categories=Utility
 StartupNotify=false
 EOF
 
-wget https://carhacking.tools/install/images/cantact.png -O cantact.png
+wget https://play-lh.googleusercontent.com/HaPn8O7TNLTDN5PbPw-Gd1aq3mvTfrudkh9ov3DqNQebQ8a5HVTaNxXsgMXWXY-TAA -O cantact.png
 
 cat << EOF > Cantact.desktop
 [Desktop Entry]
@@ -331,7 +331,7 @@ Categories=Utility
 StartupNotify=false
 EOF
 
-wget https://carhacking.tools/install/images/icsim.png -O icsim.png
+wget https://icon2.cleanpng.com/20180421/uue/kisspng-car-speedometer-computer-icons-odometer-dashboard-speedometer-background-5adabbb1c097f5.1976244315242843377889.jpg -O icsim.jpg
 
 cat << EOF > ICSim.desktop
 [Desktop Entry]
@@ -339,7 +339,7 @@ Name=ICSim
 Type=Application
 Path=/tools/ICSim/
 Exec=/tools/ICSim/icsim vcan0
-Icon=/tools/icons/icsim.png
+Icon=/tools/icons/icsim.jpg
 Terminal=true
 Categories=Utility
 StartupNotify=false
@@ -351,13 +351,13 @@ Name=ICSim Controls
 Type=Application
 Path=/tools/ICSim/
 Exec=/tools/ICSim/controls vcan0
-Icon=/tools/icons/icsim.png
+Icon=/tools/icons/icsim.jpg
 Terminal=true
 Categories=Utility
 StartupNotify=false
 EOF
 
-wget https://carhacking.tools/install/images/kayak.png -O kayak.png
+wget https://www.vhv.rs/dpng/d/457-4576489_kayak-white-kayak-icon-png-transparent-png.png -O kayak.png
 
 cat << EOF > KayakInstall.desktop
 [Desktop Entry]
@@ -371,7 +371,7 @@ Categories=Utility
 StartupNotify=false
 EOF
 
-wget https://carhacking.tools/install/images/KatyOBD.png -O KatyOBD.png
+wget https://icon2.cleanpng.com/20180421/uue/kisspng-car-speedometer-computer-icons-odometer-dashboard-speedometer-background-5adabbb1c097f5.1976244315242843377889.jpg -O KatyOBD.jpg
 
 cat << EOF > KatyOBD.desktop
 [Desktop Entry]
@@ -379,7 +379,7 @@ Name=KatyOBD
 Type=Application
 Path=/tools/KatyOBD
 Exec=sudo -H python KatyOBD.py
-Icon=/tools/icons/KatyOBD.png
+Icon=/tools/icons/KatyOBD.jpg
 Terminal=true
 Categories=Utility
 StartupNotify=false
