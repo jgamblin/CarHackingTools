@@ -17,9 +17,9 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
 sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
 #  Java Fixes
-echo oracle-java15-installer shared/accepted-oracle-license-v1-2 select true | sudo /usr/bin/debconf-set-selections
-sudo DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:linuxuprising/java
-sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
+add-apt-repository -y ppa:linuxuprising/java
+echo debconf shared/accepted-oracle-license-v1-2 select true | sudo debconf-set-selections
+echo debconf shared/accepted-oracle-license-v1-2 seen true | sudo debconf-set-selection
 
 #Base Package Install (Packages Listed Invidually For Easy Customazation/Trobule Shooting.)
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y  \
@@ -71,11 +71,11 @@ oracle-java15-installer \
 oracle-java15-set-default \
 python \
 python-dev \
-python-dev \
+python3-dev \
 python-pip \
-python-serial \
-python-wxtools \
 python3-pip \
+python3-serial \
+python-wxtools \
 ruby \
 ruby-dev \
 software-properties-common \
