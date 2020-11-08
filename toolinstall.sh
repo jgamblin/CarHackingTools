@@ -19,7 +19,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 #  Java Fixes
 add-apt-repository -y ppa:linuxuprising/java
 echo debconf shared/accepted-oracle-license-v1-2 select true | sudo debconf-set-selections
-echo debconf shared/accepted-oracle-license-v1-2 seen true | sudo debconf-set-selection
+echo debconf shared/accepted-oracle-license-v1-2 seen true | sudo debconf-set-selections
 
 #Base Package Install (Packages Listed Invidually For Easy Customazation/Trobule Shooting.)
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y  \
@@ -72,7 +72,6 @@ oracle-java15-set-default \
 python \
 python-dev \
 python3-dev \
-python-pip \
 python3-pip \
 python3-serial \
 python-wxtools \
@@ -90,7 +89,7 @@ wireshark \
 zlib1g-dev
 
 #Python Pip
-python -m pip uninstall pip  # this might need sudo
+sudo python -m pip uninstall pip  # this might need sudo
 sudo apt install --reinstall python-pip
 
 # Starting Car Hacking Tool Installation
