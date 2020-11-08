@@ -17,9 +17,9 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
 sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
 #  Java Fixes
-echo oracle-java10-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
-sudo DEBIAN_FRONTEND=noninteractive add-apt-repository -y ppa:webupd8team/java
-sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
+sudo add-apt-repository -y ppa:linuxuprising/java
+echo debconf shared/accepted-oracle-license-v1-2 select true | sudo debconf-set-selections
+echo debconf shared/accepted-oracle-license-v1-2 seen true | sudo debconf-set-selections
 
 #Base Package Install (Packages Listed Invidually For Easy Customazation/Trobule Shooting.)
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y  \
@@ -67,15 +67,14 @@ moserial \
 net-tools \
 netbeans \
 npm \
-oracle-java8-installer \
-oracle-java8-set-default \
+oracle-java15-installer \
+oracle-java15-set-default \
 python \
 python-dev \
-python-dev \
-python-pip \
-python-serial \
-python-wxtools \
+python3-dev \
 python3-pip \
+python3-serial \
+python-wxtools \
 ruby \
 ruby-dev \
 software-properties-common \
@@ -89,9 +88,6 @@ wget \
 wireshark \
 zlib1g-dev
 
-#Python Pip
-python -m pip uninstall pip  # this might need sudo
-sudo apt install --reinstall python-pip
 
 # Starting Car Hacking Tool Installation
 
@@ -129,7 +125,7 @@ cd .. || exit
 
 # Caringcaribou
 # Read The Docs Here: https://github.com/CaringCaribou/caringcaribou
-pip install --user python-can
+pip3 install --user python-can
 git clone https://github.com/CaringCaribou/caringcaribou
 
 # c0f
@@ -171,123 +167,12 @@ cd .. || exit
 
 # Python-ODB
 # Read The Docs Here: https://python-obd.readthedocs.io/en/latest/
-pip install --user pySerial
-
-git clone https://github.com/brendan-w/python-OBD
-cd python-OBD || exit
-sudo python setup.py install
-cd .. || exit
-
-
-# PyOBD:
-# Fix This!
-# Backup: git clone https://github.com/Pbartek/pyobd-pi.git
-wget http://www.obdtester.com/download/pyobd_0.9.3.tar.gz
-sudo tar -xzvf pyobd_0.9.3.tar.gz
-sudo rm -rf pyobd_0.9.3.tar.gz
-
-# SavvyCAN
-# Read The Docs Here: https://github.com/collin80/SavvyCAN
-
-# Start With QT:
-mkdir -p QT
-cd QT || exit
-cat << EOF > qt-noninteractive-install-linux.qs
-function Controller() {
-    installer.autoRejectMessageBoxes();
-    installer.installationFinished.connect(function() {
-        gui.clickButton(buttons.NextButton);
-    })
-    installer.setMessageBoxAutomaticAnswer("cancelInstallation", QMessageBox.Yes);
-}
-Controller.prototype.WelcomePageCallback = function() {
-    gui.clickButton(buttons.NextButton, 3000);
-}
-Controller.prototype.CredentialsPageCallback = function() {
-    var widget = gui.currentPageWidget();
-    widget.loginWidget.EmailLineEdit.setText("");
-    widget.loginWidget.PasswordLineEdit.setText("");
-    gui.clickButton(buttons.NextButton, 500);
-}
-Controller.prototype.IntroductionPageCallback = function() {
-    gui.clickButton(buttons.NextButton);
-}
-Controller.prototype.TargetDirectoryPageCallback = function()
-{
-    var widget = gui.currentPageWidget();
-    if (widget != null) {
-        widget.TargetDirectoryLineEdit.setText("/opt/QT");
-    }
-    gui.clickButton(buttons.NextButton);
-}
-Controller.prototype.ComponentSelectionPageCallback = function() {
-    var widget = gui.currentPageWidget();
-    function trim(str) {
-        return str.replace(/^ +/,"").replace(/ *$/,"");
-    }
-    var packages = trim("qt.qt5.5111.gcc_64,qt.qt5.5111.qtwebengine,qt.qt5.5111.qtwebengine.gcc_64").split(",");
-    if (packages.length > 0 && packages[0] !== "") {
-        widget.deselectAll();
-        for (var i in packages) {
-            var pkg = trim(packages[i]);
-            widget.selectComponent(pkg);
-        }
-    }
-    gui.clickButton(buttons.NextButton);
-}
-Controller.prototype.LicenseAgreementPageCallback = function() {
-    gui.currentPageWidget().AcceptLicenseRadioButton.setChecked(true);
-    gui.clickButton(buttons.NextButton);
-}
-Controller.prototype.StartMenuDirectoryPageCallback = function() {
-    gui.clickButton(buttons.NextButton);
-}
-Controller.prototype.ReadyForInstallationPageCallback = function()
-{
-    gui.clickButton(buttons.NextButton);
-}
-Controller.prototype.FinishedPageCallback = function() {
-    var checkBoxForm = gui.currentPageWidget().LaunchQtCreatorCheckBoxForm
-    if (checkBoxForm && checkBoxForm.launchQtCreatorCheckBox) {
-        checkBoxForm.launchQtCreatorCheckBox.checked = false;
-    }
-    gui.clickButton(buttons.FinishButton);
-}
-EOF
-
-wget https://s3.amazonaws.com/rstudio-buildtools/qt-unified-linux-x64-3.0.5-online.run
-chmod +x qt-unified-linux-x64-3.0.5-online.run
-
-echo "Installing Qt, this will take a while."
-echo " - Ignore warnings about QtAccount credentials and/or XDG_RUNTIME_DIR."
-echo " - Do not click on any Qt setup dialogs, it is controlled by a script."
-sudo ./qt-unified-linux-x64-3.0.5-online.run --script  qt-noninteractive-install-linux.qs
-cd .. || exit
-
-# SavvyCan Install
-git clone https://github.com/collin80/SavvyCAN.git
-cd SavvyCAN || exit
-sudo /opt/QT/5.11.1/gcc_64/bin/qmake
-sudo make
-sudo make install
-sudo ./install
-cd .. || exit
-
+pip3 install --user pySerial
+pip3 install --user obd
 
 # Scantool
 # Read The Docs Here: https://samhobbs.co.uk/2015/04/scantool-obdii-car-diagnostic-software-linux
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y  scantool
-
-# Socketcand
-# Read The Docs Here: https://github.com/dschanoeh/socketcand
-git clone http://github.com/dschanoeh/socketcand.git
-cd socketcand || exit
-autoconf
-./configure --without-config
- make clean
-make
-sudo make install
-cd .. || exit
 
 # UDSim
 # Read The Docs Here: https://github.com/zombieCraig/UDSim
@@ -317,7 +202,7 @@ Categories=Utility
 StartupNotify=false
 EOF
 
-wget https://carhacking.tools/install/images/cantact.png -O cantact.png
+wget https://play-lh.googleusercontent.com/HaPn8O7TNLTDN5PbPw-Gd1aq3mvTfrudkh9ov3DqNQebQ8a5HVTaNxXsgMXWXY-TAA -O cantact.png
 
 cat << EOF > Cantact.desktop
 [Desktop Entry]
@@ -331,7 +216,7 @@ Categories=Utility
 StartupNotify=false
 EOF
 
-wget https://carhacking.tools/install/images/icsim.png -O icsim.png
+wget https://icon2.cleanpng.com/20180421/uue/kisspng-car-speedometer-computer-icons-odometer-dashboard-speedometer-background-5adabbb1c097f5.1976244315242843377889.jpg -O icsim.jpg
 
 cat << EOF > ICSim.desktop
 [Desktop Entry]
@@ -339,7 +224,7 @@ Name=ICSim
 Type=Application
 Path=/tools/ICSim/
 Exec=/tools/ICSim/icsim vcan0
-Icon=/tools/icons/icsim.png
+Icon=/tools/icons/icsim.jpg
 Terminal=true
 Categories=Utility
 StartupNotify=false
@@ -351,13 +236,13 @@ Name=ICSim Controls
 Type=Application
 Path=/tools/ICSim/
 Exec=/tools/ICSim/controls vcan0
-Icon=/tools/icons/icsim.png
+Icon=/tools/icons/icsim.jpg
 Terminal=true
 Categories=Utility
 StartupNotify=false
 EOF
 
-wget https://carhacking.tools/install/images/kayak.png -O kayak.png
+wget http://www.vhv.rs/dpng/d/457-4576489_kayak-white-kayak-icon-png-transparent-png.png -O kayak.png
 
 cat << EOF > KayakInstall.desktop
 [Desktop Entry]
@@ -371,7 +256,7 @@ Categories=Utility
 StartupNotify=false
 EOF
 
-wget https://carhacking.tools/install/images/KatyOBD.png -O KatyOBD.png
+wget https://icon2.cleanpng.com/20180421/uue/kisspng-car-speedometer-computer-icons-odometer-dashboard-speedometer-background-5adabbb1c097f5.1976244315242843377889.jpg -O KatyOBD.jpg
 
 cat << EOF > KatyOBD.desktop
 [Desktop Entry]
@@ -379,13 +264,12 @@ Name=KatyOBD
 Type=Application
 Path=/tools/KatyOBD
 Exec=sudo -H python KatyOBD.py
-Icon=/tools/icons/KatyOBD.png
+Icon=/tools/icons/KatyOBD.jpg
 Terminal=true
 Categories=Utility
 StartupNotify=false
 EOF
 
-sudo rm ~/Desktop/SavvyCAN.desktop
 sleep 15
 sudo chmod 755 ./*.desktop
 cp ./*.desktop ~/.local/share/applications

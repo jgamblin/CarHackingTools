@@ -16,7 +16,7 @@ cd /tools || exit
 # Set Background Images
 mkdir -p images
 cd images || exit
-wget https://carhacking.tools/install/images/background.gif -O background.gif
+wget https://i.redd.it/ngu5ofssout01.png -O background.gif
 gsettings set org.gnome.desktop.background picture-uri "/tools/images/background.gif"
 cd .. || exit
 
@@ -31,7 +31,6 @@ gsettings set org.gnome.desktop.screensaver primary-color '#000000'
 gsettings set org.gnome.desktop.screensaver secondary-color '#000000'
 gsettings set org.gnome.desktop.screensaver ubuntu-lock-on-suspend false
 gsettings set org.gnome.login-screen disable-user-list true
-gsettings set org.gnome.nautilus.desktop trash-icon-visible false
 gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Terminal.desktop', 'Cantact.desktop', 'ICSim.desktop', 'ICSimControls.desktop', 'SavvyCAN.desktop', 'wireshark.desktop', 'arduino.desktop', 'moserial.desktop']"
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM

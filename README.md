@@ -1,6 +1,6 @@
 # CarHacking.Tools
 
-CarHacking.Tools is a scripts collection of scripts to help jump start car research (and hacking?). All the scripts are designed to run on [Ubuntu 20.04](ubuntu.com).
+CarHacking.Tools is a scripts collection of scripts to help jump start car research (and hacking?). All the scripts are designed and update to run on [Ubuntu 20.04](ubuntu.com).
 
 ## How To Install
 
@@ -20,8 +20,8 @@ sudo chmod +x *.sh
 To Install Only The Tools:
 
 ```bash
-Git clone https://github.com/jgamblin/carhackingtools
-cd CarHackingTools
+git clone https://github.com/jgamblin/carhackingtools
+cd carhackingtools
 sudo chmod +x *.sh
 ./toolinstall.sh
 ```
@@ -59,7 +59,6 @@ The following tools are installed and configured automatically:
 | Python-OBD |  <https://github.com/brendan-w/python-OBD> | Use over PIP install. |
 | SavvyCAN |  <http://www.savvycan.com/> | Basic CAN tool. |
 | Scantool |  <https://www.scantool.net/> | Super old tool but still works. |
-| Socketcand |  <https://github.com/dschanoeh/socketcand> | Basic CAN tool. |
 | UDSim |  <https://github.com/zombieCraig/UDSim> | Basic simulator for testing without a car. |
 | Wireshark |  <https://www.wireshark.org/> | Great for capturing OBDII data just like you would ethernet data. |  
 
