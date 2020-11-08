@@ -76,3 +76,7 @@ The following sites have been useful to me:
 ## Warning
 
 I likely don't know what I am doing and this could be done faster, better and simpler some other way. These scripts could also break your car (seriously) and make you cry.
+
+## Github Action Badges
+
+![Lint Code Base](https://github.com/jgamblin/CarHackingTools/workflows/Lint%20Code%20Base/badge.svg)
