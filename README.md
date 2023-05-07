@@ -68,9 +68,8 @@ The following sites have been useful to me:
 
 | Link | Notes |
 | ------------- | ------------- |
-| <http://opengarages.org/handbook/> | Car Hacking Handbook |
-| <http://opengarages.org/> | Open Garages |
-| <https://wiki.linklayer.com/index.php/SocketCAN> | I user this when I forget how to enable can0 |
+| <https://archive.org/details/car-hackers-handbook-the-craig-smith> | Car Hacking Handbook |
+| <https://wiki.linklayer.com/index.php/SocketCAN> | I use this when I forget how to enable can0 |
 
 ## Warning
 
